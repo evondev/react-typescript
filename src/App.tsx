@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
+import { Permission } from "./utils/enums";
+import { Age } from "./utils/types";
 // arrObj: {}[] = [{}]
 const reviews: {
   name: string;
   image: string;
   stars: number;
   premiumUser: boolean;
-  date: string;
+  date: string | number;
 }[] = [
   {
     name: "Evondev",
@@ -19,7 +21,7 @@ const reviews: {
     image: "",
     stars: 4,
     premiumUser: false,
-    date: "03/08/2022",
+    date: 123456789,
   },
 ];
 
@@ -57,24 +59,33 @@ const travelItem: {
 
 // const obj: {} = {}
 // union types |
+// Permissions
 function App() {
   const [count, setCount] = useState(0);
   const user: {
     firstName: string;
     lastName: string;
-    age: number;
+    age: Age;
     isStudent: boolean;
     school: (string | number)[];
     scores: number[];
+    contact: [number, string];
+    permission: Permission;
   } = {
     firstName: "Tran",
     lastName: "Anh Tuan",
-    age: 29,
+    age: "40",
     isStudent: false,
     school: ["Cao Thang", "Ton Duc Thang", "Sai Gon University", 35],
     scores: [10, 9, 8],
+    contact: [123456789, "tuan@gmail.com"],
+    permission: Permission.ADMIN,
   };
-  function displayReview(totalReviews: number, name: string, premium: boolean) {
+  function displayReview(
+    totalReviews: number | string,
+    name: string,
+    premium: boolean
+  ) {
     return (
       <>
         Review total <strong>{totalReviews}</strong> | Last reviewed by{" "}
