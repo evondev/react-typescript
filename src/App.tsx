@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Card from "./components/Card";
 import { Permission } from "./utils/enums";
 import { Age } from "./utils/types";
 // arrObj: {}[] = [{}]
@@ -100,6 +101,7 @@ function App() {
 
   return (
     <div>
+      {/* <Card ></Card> */}
       <div className="review">
         <div className="review-image">
           <img

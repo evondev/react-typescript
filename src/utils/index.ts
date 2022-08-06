@@ -2,6 +2,9 @@
 //   return a + b;
 // }
 // total('5', '7'); // 57
+
+import { FinalProduct, Product } from "./interfaces";
+
 // total('5', true); // 57
 export function total(a: number, b: number): number {
   return a + b;
@@ -9,13 +12,7 @@ export function total(a: number, b: number): number {
 }
 total(5, 7);
 // total("5", 9);
-// Type assignment
-// const variable: dataTypes = value
-// const age: number = 30
-// const age: number = 30;
-// const name: string = 'evondev';
-// const isStudent: boolean = false;
-// const school = 'Cao Thang';
+
 /**
  // Tuple
   string[] -> ['evondev', 'react', 'javascript']
@@ -38,3 +35,36 @@ total(5, 7);
  */
 // Function
 // Void
+// unknow
+// let aNumber: unknown;
+// aNumber = 100;
+// if (typeof aNumber === "number") {
+//   aNumber.toFixed(2);
+// }
+// const a = 100;
+// a.toFixed(2); // 100.00
+// never
+// contains no values
+// represent return type of a function throw error
+// function raiseError(err: string): never {
+//   throw new Error(err);
+// }
+// function reject() {
+//   return raiseError("error");
+// }
+// let loop = function forever() {
+//   while (true) {
+//     console.log("Hello world");
+//   }
+// };
+// let x: never = 10;
+
+const product: FinalProduct = {
+  name: "car",
+  brand: "bmw",
+  color: "red",
+};
+function addProduct(product: FinalProduct) {
+  //
+}
+addProduct(product);
