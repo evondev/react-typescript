@@ -98,7 +98,6 @@ function App() {
   // name?: parameter này không bắt buộc
   // const travelItem: image, name, totalReviews, rating, location, price, date, departure, features: wifi, parking, offer
   // Khai báo 1 biến có tên là travelItem là một mảng chứa các object có các properties(thuộc tính) như trên
-
   return (
     <div>
       {/* <Card ></Card> */}

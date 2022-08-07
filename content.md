@@ -22,7 +22,7 @@
 - Unknow
 - Never
 - Interface
-- Function overload
+- Function overloading
 - Intersection types
 - Type casting `as` `<>`
 - Type assertions `as`
