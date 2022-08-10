@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "./components/Card";
 import { Permission } from "./utils/enums";
+import { simpleUseState } from "./utils/tuple";
 import { Age } from "./utils/types";
 // arrObj: {}[] = [{}]
 const reviews: {
