@@ -47,7 +47,8 @@ const languages: {
     dificutly: 70,
   },
 ];
-// console.log(ranker([1, 2, 3, 4, 5], (number) => number * 5));
+const r = ranker([1, 2, 3, 4, 5], (number) => number * 5);
+console.log(r);
 const rank = ranker(languages, ({ dificutly }) => dificutly);
 console.log("rank", rank);
 // [1,2,3,4,5] (v) => v * 5
