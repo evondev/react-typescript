@@ -29,9 +29,15 @@
 
 # React
 
-- Function Component
-- useState, useRef, useEffect, useReducer
+- Functional Component
+- TodoApp: useState, useRef, useEffect, useReducer
 - Event handler
+- Custom hooks: useTodos
+- Advanced properties: useState as props, HTMLDetailsProps
+- Generic components: RenderList
+- useContext
+- Redux toolkit
+- Zustand
 
 # Advanced types `*`
 
