@@ -35,9 +35,11 @@
 - Custom hooks: useTodos
 - Advanced properties: useState as props, HTMLDetailsProps
 - Generic components: RenderList
-- useContext
-- Redux toolkit
+- ContextAPI
 - Zustand
+- Redux Thunk
+- Redux Saga
+- Redux Toolkit
 
 # Advanced types `*`
 
