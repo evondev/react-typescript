@@ -1,52 +1,36 @@
-import React, { useReducer, useRef } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
+import useTodos from "./hooks/useTodos";
 const Heading = ({ title }: { title: string }) => {
   return <h2 className="font-primary font-bold text-2xl mb-5">{title}</h2>;
 };
-type ActionType =
-  | { type: "ADD"; text: string }
-  | { type: "REMOVE"; id: number };
-interface Todo {
-  id: number;
+interface Data {
   text: string;
 }
-const todoReducer = (state: Todo[], action: ActionType) => {
-  switch (action.type) {
-    case "ADD":
-      return [
-        ...state,
-        {
-          id: state.length,
-          text: action.text,
-        },
-      ];
-    case "REMOVE":
-      return state.filter((todo: Todo) => todo.id !== action.id);
-    default:
-      throw new Error("");
-  }
-};
-const initialState: Todo[] = [];
 const App = () => {
-  const [todos, dispatch] = useReducer(todoReducer, initialState);
-  const inputRef = useRef<HTMLInputElement>(null);
-  const onRemoveTodo = (todoId: number) => {
-    dispatch({
-      type: "REMOVE",
-      id: todoId,
-    });
-  };
-  const onAddTodo = () => {
-    if (inputRef.current) {
-      dispatch({
-        type: "ADD",
-        text: inputRef.current.value,
+  const { todos, onAddTodo, onRemoveTodo, inputRef } = useTodos([]);
+  const [data, setData] = useState<Data | null>(null);
+  // const [a, b] = useState<number>('')
+  useEffect(() => {
+    fetch("data.json")
+      .then((res) => res.json())
+      .then((result) => {
+        setData(result);
       });
-      inputRef.current.value = "";
-    }
+  }, []);
+  const onClickItem = (item: string) => {
+    alert(item);
   };
   return (
     <div>
       <Heading title="Todo App"></Heading>
+      {JSON.stringify(data)}
+      <List
+        items={["javascript", "html", "css", "react"]}
+        onClickItem={(item: string) => onClickItem(item)}
+      ></List>
+      <Boxed>
+        <div>abc</div>
+      </Boxed>
       <div className="max-w-sm">
         <div className="mb-5 flex flex-col gap-y-5">
           {todos.map((todo) => (
@@ -77,6 +61,28 @@ const App = () => {
       </div>
     </div>
   );
+};
+
+const List = ({
+  items,
+  onClickItem,
+}: {
+  items: string[];
+  onClickItem?: (item: string) => void;
+}) => {
+  return (
+    <div>
+      {items.map((item) => (
+        <div key={item} onClick={() => onClickItem?.(item)}>
+          {item}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const Boxed = ({ children }: { children?: React.ReactNode }) => {
+  return <div>{children}</div>;
 };
 
 export default App;

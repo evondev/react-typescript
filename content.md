@@ -33,8 +33,8 @@
 - TodoApp: useState, useRef, useEffect, useReducer
 - Event handler
 - Custom hooks: useTodos
-- Advanced properties: useState as props, HTMLDetailsProps
 - Generic components: RenderList
+- Advanced properties: useState as props, HTMLDetailsProps
 - ContextAPI
 - Zustand
 - Redux Thunk
