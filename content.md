@@ -34,11 +34,9 @@
 - Event handler
 - Custom hooks: useTodos
 - Generic components: RenderList
-- Advanced properties: useState as props, HTMLDetailsProps
+- Advanced properties: HTMLDetailsProps
 - ContextAPI
 - Zustand
-- Redux Thunk
-- Redux Saga
 - Redux Toolkit
 
 # Advanced types `*`

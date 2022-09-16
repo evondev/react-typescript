@@ -6,6 +6,7 @@ const Heading = ({ title }: { title: string }) => {
 interface Data {
   text: string;
 }
+
 const App = () => {
   const { todos, onAddTodo, onRemoveTodo, inputRef } = useTodos([]);
   const [data, setData] = useState<Data | null>(null);
@@ -20,6 +21,14 @@ const App = () => {
   const onClickItem = (item: string) => {
     alert(item);
   };
+  const products = [
+    {
+      id: 1,
+      title: "Iphone 14",
+      price: 1500,
+      store: "tgdd",
+    },
+  ];
   return (
     <div>
       <Heading title="Todo App"></Heading>
@@ -32,9 +41,10 @@ const App = () => {
         <div>abc</div>
       </Boxed>
       <div className="max-w-sm">
-        <div className="mb-5 flex flex-col gap-y-5">
-          {todos.map((todo) => (
-            <div className="flex items-center gap-x-3" key={todo.id}>
+        <RenderList
+          items={todos}
+          render={(todo) => (
+            <div className="flex items-center gap-x-3">
               <span>{todo.text}</span>
               <button
                 onClick={() => onRemoveTodo(todo.id)}
@@ -43,8 +53,12 @@ const App = () => {
                 Remove
               </button>
             </div>
-          ))}
-        </div>
+          )}
+        ></RenderList>
+        <RenderList
+          items={products}
+          render={(product) => <div>{JSON.stringify(product)}</div>}
+        ></RenderList>
         <div className="flex items-center gap-x-5">
           <input
             type="text"
@@ -83,6 +97,16 @@ const List = ({
 
 const Boxed = ({ children }: { children?: React.ReactNode }) => {
   return <div>{children}</div>;
+};
+
+const RenderList = <T,>({
+  items,
+  render,
+}: {
+  items: T[];
+  render: (item: T) => React.ReactNode;
+}) => {
+  return <>{items.map((item) => render(item))}</>;
 };
 
 export default App;
